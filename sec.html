@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://fb.me/react-0.14.3.js"></script>
+	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+
+
+	<script type="text/jsx">
+	//define a class
+	var badge = React.createClass({
+		render:function(){
+			return <button className="btn btn-primary">
+			  {this.props.title} <span className="badge badge-secondary">{this.props.number}</span>
+			</button>
+		}
+	});
+
+	var options = {
+		title:'Inbox',
+		number:32
+	};
+
+	// react,render the class
+	var element = React.createElement(badge,options);
+
+	//after rendering pace inside the body class
+	React.render(element,document.body);
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://fb.me/react-0.14.3.js"></script>
+	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+
+
+	<script type="text/jsx">
+	//define a class
+	var helloWorld = React.createClass({
+		render:function(){
+			return <div>
+				Hello World
+			</div>
+		}
+	});
+
+	// react,render the class
+	var element = React.createElement(helloWorld);
+
+	//after rendering pace inside the body class
+	React.render(element,document.body);
+	</script>
+</body>
+</html>

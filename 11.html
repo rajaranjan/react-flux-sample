@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://fb.me/react-0.14.3.js"></script>
+	<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+		<div class="container">
+		</div>
+
+	<script type="text/jsx">
+	//define a class
+	var Badge = React.createClass({
+		render:function(){
+			return <button className="btn btn-primary">
+			  {this.props.title} <span className="badge badge-secondary">{this.props.number}</span>
+			</button>
+		}
+	});
+	var Thumbnail = React.createClass({
+		render:function(){
+			return <div className="card">
+			  <img className="card-img-top" src={this.props.imageUrl} alt="Card image cap" />
+			  <div className="card-body">
+			    <p className="card-text">{this.props.content}</p>
+			    <Badge title={this.props.title} number={this.props.number} />
+			  </div>
+			</div>
+		}
+	});
+	var Thumbnaillist = React.createClass({
+		render:function(){
+			var list = this.props.thumbnailData.map(function(thumbnailProps){
+				return <Thumbnail {...thumbnailProps} />
+			});
+			return <div>
+			{list}
+			</div>
+		}
+	});
+	var options = {
+		thumbnailData:[{
+			title:'send',
+			number:2,
+			imageUrl:'https://facebook.github.io/react/img/logo_og.png',
+			content:'content is ...'
+		},{
+			title:'Receive',
+			number:20,
+			imageUrl:'https://facebook.github.io/react/img/logo_og.png',
+			content:'content is ...'
+		}]
+	};
+
+	// react,render the class
+	var element = React.createElement(Thumbnaillist,options);
+
+	//after rendering pace inside the body class
+	React.render(element,document.querySelector('.container'));
+	</script>
+</body>
+</html>
